@@ -23,6 +23,8 @@ import javax.swing.JTextPane;
  *
  */
 public class LoginView extends JPanel implements View {
+
+	private static final long serialVersionUID = 7598989404865590069L;
 	private JTextField textField;
 	private JPasswordField passwordField;
 	private JButton btnLogin;

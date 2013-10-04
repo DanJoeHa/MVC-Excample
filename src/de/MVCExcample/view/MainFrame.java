@@ -20,6 +20,7 @@ import javax.swing.JMenuItem;
  */
 public class MainFrame extends JFrame implements View{
 
+	private static final long serialVersionUID = -6158813169959585283L;
 	private JPanel contentPane, activeView;
 	private JMenu mnAdministration, mnDatei;
 	private JMenuItem mntmBeenden, mntmMitarbeiterAnlegen, mntmMitarbeiterndern;

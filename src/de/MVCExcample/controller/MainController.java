@@ -5,10 +5,7 @@ package de.MVCExcample.controller;
 
 import java.awt.event.ActionEvent;
 
-import javax.swing.JPanel;
-
 import de.MVCExcample.model.User;
-import de.MVCExcample.view.LoginView;
 import de.MVCExcample.view.MainFrame;
 import de.MVCExcample.view.View;
 import de.MVCExcample.view.WelcomeView;

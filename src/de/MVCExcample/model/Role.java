@@ -46,7 +46,7 @@ public class Role implements Model {
 	}
 	
 	public Right getRechtByBezeichnung(String bezeichnung){
-		Iterator i = this.rechte.iterator();
+		Iterator<Right> i = this.rechte.iterator();
 		
 		while( i.hasNext() ){
 			Right r = (Right) i.next();

@@ -13,18 +13,18 @@ import com.jgoodies.forms.factories.FormFactory;
 import de.MVCExcample.controller.Controller;
 
 import javax.swing.JLabel;
-import javax.swing.JFormattedTextField;
 import javax.swing.JTextArea;
 
 import java.awt.Color;
-
-import javax.swing.JEditorPane;
 
 /**
  * @author Johannes
  *
  */
 public class WelcomeView extends JPanel implements View {
+
+	private static final long serialVersionUID = -4234412303482230185L;
+
 
 	/**
 	 * Create the panel.
