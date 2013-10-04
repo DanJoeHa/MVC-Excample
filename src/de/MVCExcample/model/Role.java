@@ -3,6 +3,8 @@
  */
 package de.MVCExcample.model;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -12,13 +14,30 @@ import java.util.LinkedList;
  * @version 1.0
  *
  */
-public class Role implements Model {
+public class Role extends RemoteConnection implements Model {
 	
 	private Collection<Right> rechte = new LinkedList<>();
 	private String bezeichnung;
 	
 	public Role(String bez){
-		//aus DB holen
+		
+		if( RemoteConnection.connection == null || RemoteConnection.sql == null ){
+			RemoteConnection.connect();
+		}
+		
+		try {
+			ResultSet res = RemoteConnection.sql.executeQuery("SELECT * FROM rolle_has_rechte WHERE rolle_bezeichnung = '" + bez + "'");
+			
+			this.setBezeichnung(bez);
+			while(res.next()){		
+				Right r = new Right(res.getString("rechte_bezeichnung"));
+				this.addRecht(r);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		//Dummy-Befüllung Testzwecke
 		if( bez.equals("Administrator") ){

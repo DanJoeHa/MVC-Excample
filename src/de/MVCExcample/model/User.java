@@ -3,13 +3,16 @@
  */
 package de.MVCExcample.model;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 
 /**
  * @author Johannes Haag
  * @version 1.0
  *
  */
-public class User implements Model {
+public class User extends RemoteConnection implements Model {
 	
 	//Attribute
 	private String Vorname;
@@ -22,11 +25,30 @@ public class User implements Model {
 	//Konstruktor
 	public User(String userid) {
 		
-		//Userdaten anhand userid aus DB abfragen
+		if( RemoteConnection.connection == null || RemoteConnection.sql == null ){
+			RemoteConnection.connect();
+		}
 		
-		//UserAttribute aus DB fÃ¼llen
+		try {
+			//Userdaten anhand userid aus DB abfragen
+			ResultSet res = RemoteConnection.sql.executeQuery( "SELECT * FROM user WHERE BenutzerID = '" + userid +"'" );
+			
+			//User-Attribute aus DB füllen
+			res.first();
+			this.setVorname( res.getString("Vorname"));
+			this.setNachname(res.getString("Nachname"));
+			this.setBenutzerid(res.getString("BenutzerID"));
+			this.setPasswort(res.getString("Passwort"));
+			
+			Role r = new Role(res.getString("Rolle"));
+			this.setRolle(r);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		//Dummy-BefÃ¼llung zu Testzwecken
+		
+		//Dummy-Befüllung zu Testzwecken
 		if(userid.equals("dojo")){
 			this.setVorname("John");
 			this.setNachname("Doe");

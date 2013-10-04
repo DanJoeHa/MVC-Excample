@@ -14,13 +14,9 @@ public class Right implements Model {
 	private boolean Granted;
 	
 	public Right(String bez){
-		//DB
 		
-		//Dummy-Befüllung zu Testzwecken
-		if( bez.equals("Adminmenu") ){
-			this.setBezeichnung(bez);
-			this.setGranted(true);
-		}
+		this.setBezeichnung(bez);
+		this.setGranted(true);
 	}
 	
 	/**
