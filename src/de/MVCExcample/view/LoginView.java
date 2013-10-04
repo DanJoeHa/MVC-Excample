@@ -89,7 +89,7 @@ public class LoginView extends JPanel implements View {
 		txtpnBenutzerDojoPasswort = new JTextPane();
 		txtpnBenutzerDojoPasswort.setEnabled(false);
 		txtpnBenutzerDojoPasswort.setEditable(false);
-		txtpnBenutzerDojoPasswort.setText("Benutzer: dojo\r\nPasswort: 123456");
+		txtpnBenutzerDojoPasswort.setText("Benutzer: 123\r\nPasswort: 123");
 		add(txtpnBenutzerDojoPasswort, "12, 18, fill, fill");
 
 	}
