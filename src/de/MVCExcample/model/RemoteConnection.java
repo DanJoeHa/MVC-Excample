@@ -13,7 +13,7 @@ public class RemoteConnection {
 	public static void connect(){
 		try{
 			//DB-Verbindung aufbauen inkl. DB auswählen
-			RemoteConnection.connection = DriverManager.getConnection("jdbc:mysql://141.31.67.147/mvc-excample", "root", "");
+			RemoteConnection.connection = DriverManager.getConnection("jdbc:mysql://141.31.67.147/mvc-example", "root", "");
 			
 			//Statement erstellen
 			RemoteConnection.sql = connection.createStatement();
